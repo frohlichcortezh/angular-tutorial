@@ -9,5 +9,5 @@ nmp -v
 
 nmp install -g @angular/cli
 
-
+ng -v
 
