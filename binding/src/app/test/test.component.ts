@@ -6,18 +6,18 @@ import { Component, OnInit } from '@angular/core';
     <h2>
       Welcome {{name}}
     </h2>
-    <h2>{{2+2}}</h2>
-    <h2>{{"Welcome " + name}}</h2>
-    <h2>{{name.length}}</h2>
-    <h2>{{name.toUpperCase()}}</h2>
-    <h2>{{greetUser()}}</h2>
-    <h2>{{siteurl}}</h2>`,
+    <input [id]="myId" type="text" value="Vishwas">
+    <input [disabled]="isDisabled" id={{myId}} type="text" value="Vishwas">
+    <input bind-disabled="isDisabled" id={{myId}} type="text" value="Vishwas">
+  
+  `,
   styles: []
 })
 export class TestComponent implements OnInit {
 
   public name = "Vishwas";
-  public siteurl = window.location.href;
+  public myId = "testId";
+  public isDisabled = true;
 
   constructor() { }
 
