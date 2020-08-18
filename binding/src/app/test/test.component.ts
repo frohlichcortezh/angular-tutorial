@@ -3,45 +3,33 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-test',
   template: `
-    <h2 class="text-success">
+    <h2>
       Welcome {{name}}
     </h2>
-    <h2 [class]="successClass">
-      Codevolution
-    </h2>
-    <h2 class="text-special" [class]="successClass">
-      Codevolution
-    </h2>  
-    <h2 [class.text-danger]="hasError">
-      Codevolution
-    </h2>    
-    <h2 [ngClass]="messageClasses">
-      Codevolution
-    </h2>    
-    <input [id]="myId" type="text" value="Vishwas">
-    <input [disabled]="isDisabled" id={{myId}} type="text" value="Vishwas">
-    <input bind-disabled="isDisabled" id={{myId}} type="text" value="Vishwas">
+    <h2 [style.color]="'orange'">Style Binding</h2>
+
+    <h2 [style.color]="hasError ? 'red' : 'green'">Style Binding Conditional</h2>
   
+    <h2 [style.color]="highlightColor">Style Binding 2: Property Bond</h2>
+
+    <h2 [ngStyle]="titleStyles">Style Binding 3: Styles</h2>
   `,
-  styles: [`
-    .text-success {
-      color: green;      
-    }
-    .text-danger {
-      color: red;
-    }
-    .text-special {
-      font-style: italic;
-    }
-  `]
+  styles: []
 })
 export class TestComponent implements OnInit {
 
   public name = "Vishwas";
   public myId = "testId";
   public isDisabled = true;
-  public hasError = false;
+  public hasError = true;
   public successClass = "text-success";
+
+  public highlightColor = "orange";
+
+  public titleStyles = {
+    color: "blue",
+    fontStyle: "italic"
+  }
 
   public isSpecial = true;
   public messageClasses = {
